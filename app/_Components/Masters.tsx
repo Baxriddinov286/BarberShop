@@ -223,21 +223,13 @@ export default function Masters() {
             type="text"
             placeholder="Enter name..."
           />
-          <select
+          <input
             className="w-full mb-3 px-4 py-2 rounded-md bg-[#2c2c2c] text-white border border-[#e0a96d] focus:outline-none"
             onChange={(e) => setMasterSkills(e.target.value)}
             value={masterSkills}
-          >
-            <option value="disabled" disabled selected>
-              Xizmatni tanlang...
-            </option>
-            <option value="soch-kesish">Soch kesish</option>
-            <option value="soqol-trim">Soqol trimlash</option>
-            <option value="soch-yuvish">Soch yuvish</option>
-            <option value="soqol-shaving">Soqol qirqish</option>
-            <option value="soch-styling">Soch styling</option>
-            <option value="soch-ranglash">Soch ranglash</option>
-          </select>
+            type="text"
+            placeholder="Enter skills..."
+          />
 
           <input
             className="w-full mb-4 px-4 py-2 rounded-md bg-[#2c2c2c] text-white border border-[#e0a96d] focus:outline-none"

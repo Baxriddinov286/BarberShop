@@ -4,9 +4,9 @@ import Navbar from "./Navbar";
 
 export default function Home() {
   return (
-    <div className="h-screen">
+    <div className="h-screen home">
       <Navbar />
-      <div id="#home" className="flex justify-center items-center h-full px-4">
+      <div id="#home" className="flex justify-center items-center -mt-10 h-full px-4">
         <Image
           src="/Logo.svg"
           alt="Barber"
