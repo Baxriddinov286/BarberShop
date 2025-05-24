@@ -14,10 +14,21 @@ html {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  max-width: 1537px;
+  margin: auto;
 }
 
 .servicesHome {
   background-image: url("/img.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 1537px;
+  margin: auto;
+}
+
+.discount {
+  background-image: url("/img111.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
