@@ -77,6 +77,10 @@ export default function Page() {
   }, []);
 
   const handleOpenModal = () => {
+    if (!userId) {
+      toast.error("Iltimos, tizimga kiring");
+      return;
+    }
     if (!date) {
       toast.warn("Iltimos, sanani tanlang");
       return;
@@ -87,11 +91,6 @@ export default function Page() {
     }
     if (!time.trim()) {
       toast.warn("Iltimos, vaqtni kiriting");
-      return;
-    }
-
-    if (!userId) {
-      toast.error("Iltimos, tizimga kiring");
       return;
     }
     setOpenModal(true);
@@ -114,6 +113,7 @@ export default function Page() {
         phone,
       },
     ]);
+
     if (error) {
       toast.error("Xatolik yuz berdi, qaytadan urinib ko‘ring");
       console.log(error);
@@ -127,6 +127,9 @@ export default function Page() {
       setMaster("");
       setName("");
       setPhone("");
+      setTimeout(() => {
+        location.href = "/";
+      }, 2000);
     }
   };
 
@@ -248,7 +251,7 @@ export default function Page() {
       >
         <div className="flex flex-col gap-4">
           <h3 className="text-white text-2xl font-bold mb-4 text-center">
-            Bronni tasdiqlaysizmi?
+            Bronni tasdiqlang!
           </h3>
           <input
             type="text"

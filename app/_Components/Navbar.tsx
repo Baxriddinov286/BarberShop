@@ -1,7 +1,7 @@
 "use client";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import Link from "next/link";
 
 export default function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -58,12 +58,15 @@ export default function Navbar() {
         </ul>
 
         {isLoggedIn ? (
-          <button className="text-sm md:text-base px-4 py-1 border rounded-sm font-bold hidden md:block">
+          <Link
+            className="text-decoration-none text-white text-sm md:text-base px-4 py-1 border rounded-sm font-bold hidden md:block"
+            href="/profile"
+          >
             Profile
-          </button>
+          </Link>
         ) : (
           <Link
-            className="text-sm md:text-base px-4 py-1 border rounded-sm font-bold hidden md:block"
+            className="text-decoration-none text-white text-sm md:text-base px-4 py-1 border rounded-sm font-bold hidden md:block"
             href="/sign-in"
           >
             Sign In
