@@ -60,21 +60,20 @@ export default function Book() {
         </h1>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {loading ? (
-          <div className="w-full h-full overflow-y-scroll p-6 text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <>
             {[...Array(12)].map((_, i) => (
               <div
                 key={i}
-                className="bg-[#2c2c2c] p-6 rounded-lg shadow-md border border-[#444] animate-pulse"
+                className="bg-[#2c2c2c] p-4 rounded-lg shadow-md border border-[#444] animate-pulse"
               >
-                <div className="h-6 bg-[#444] mb-4 rounded w-2/3"></div>
-                <div className="h-4 bg-[#444] mb-3 rounded w-full"></div>
-                <div className="h-4 bg-[#444] mb-3 rounded w-1/2"></div>
-                <div className="h-4 bg-[#444] rounded w-1/3"></div>
+                <div className="h-6 bg-[#444] mb-3 rounded w-2/3"></div>
+                <div className="h-4 bg-[#444] mb-2 rounded w-full"></div>
+                <div className="h-4 bg-[#444] rounded w-1/2"></div>
               </div>
             ))}
-          </div>
+          </>
         ) : (
           <>
             {books.length === 0 && (
