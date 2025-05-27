@@ -6,17 +6,11 @@ import { GiHamburgerMenu } from "react-icons/gi";
 export default function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeMenu, setActiveMenu] = useState("Home");
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
     setIsLoggedIn(!!userId);
   }, []);
-
-  const getLinkClass = (name: string) =>
-    `hover:text-white duration-500 ${
-      activeMenu === name ? "text-white" : "text-[#979797]"
-    }`;
 
   return (
     <div className="relative max-w-[1537px] mx-auto p-4 bg-transparent text-white">
@@ -28,31 +22,21 @@ export default function Navbar() {
 
         <ul className="hidden md:flex items-center gap-5 text-sm md:text-base cursor-pointer font-black">
           <li
-            className={getLinkClass("Home")}
-            onClick={() => {
-              setActiveMenu("Home"), (location.href = "/");
-            }}
+            className="cursor-pointer hover:text-white text-[#979797] duration-500"
+            onClick={() => (location.href = "/")}
           >
             Home
           </li>
           <li
-            className={getLinkClass("Services")}
-            onClick={() => {
-              setActiveMenu("Services"), (location.href = "/servic");
-            }}
+            className="cursor-pointer hover:text-white text-[#979797] duration-500"
+            onClick={() => (location.href = "/servic")}
           >
             Services
           </li>
-          <li
-            className={getLinkClass("About Us")}
-            onClick={() => setActiveMenu("About Us")}
-          >
+          <li className="cursor-pointer hover:text-white text-[#979797] duration-500">
             About Us
           </li>
-          <li
-            className={getLinkClass("Contact Us")}
-            onClick={() => setActiveMenu("Contact Us")}
-          >
+          <li className="cursor-pointer hover:text-white text-[#979797] duration-500">
             Contact Us
           </li>
         </ul>
@@ -77,26 +61,32 @@ export default function Navbar() {
       {menuOpen && (
         <ul className="absolute top-[60px] left-0 right-4 z-50 p-4 rounded-md flex flex-col gap-3 md:hidden text-sm font-black text-[#979797] shadow-lg bg-[#0f0f0f]">
           <li
-            className={getLinkClass("Home")}
-            onClick={() => setActiveMenu("Home")}
+            className="cursor-pointer hover:text-white duration-500"
+            onClick={() => {
+              location.href = "/";
+              setMenuOpen(false);
+            }}
           >
             Home
           </li>
           <li
-            className={getLinkClass("Services")}
-            onClick={() => setActiveMenu("Services")}
+            className="cursor-pointer hover:text-white duration-500"
+            onClick={() => {
+              location.href = "/servic";
+              setMenuOpen(false);
+            }}
           >
             Services
           </li>
           <li
-            className={getLinkClass("About Us")}
-            onClick={() => setActiveMenu("About Us")}
+            className="cursor-pointer hover:text-white duration-500"
+            onClick={() => setMenuOpen(false)}
           >
             About Us
           </li>
           <li
-            className={getLinkClass("Contact Us")}
-            onClick={() => setActiveMenu("Contact Us")}
+            className="cursor-pointer hover:text-white duration-500"
+            onClick={() => setMenuOpen(false)}
           >
             Contact Us
           </li>

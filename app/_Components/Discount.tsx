@@ -6,7 +6,7 @@ const Discount = () => {
     <div className="max-w-[1537px] mx-auto">
       <div className="bg-black text-yellow-500 py-12">
         <div className="flex flex-col md:flex-row justify-around text-center space-y-8 md:space-y-0">
-          <div>
+          <div className="flex flex-col items-center">
             <Image
               src="/icon scissors.svg"
               alt="Service Icon"
@@ -17,7 +17,7 @@ const Discount = () => {
             <div className="text-5xl font-bold">2500</div>
             <div className="text-white mt-2">SHAVES</div>
           </div>
-          <div>
+          <div className="flex flex-col items-center">
             <Image
               src="/icon scissors.svg"
               alt="Service Icon"
@@ -28,7 +28,7 @@ const Discount = () => {
             <div className="text-5xl font-bold">4500</div>
             <div className="text-white mt-2">HAIRCUTS</div>
           </div>
-          <div>
+          <div className="flex flex-col items-center">
             <Image
               src="/icon scissors.svg"
               alt="Service Icon"

@@ -33,3 +33,10 @@ html {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.barbers {
+  background-image: url("/image 1.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: start;
+}

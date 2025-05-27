@@ -38,7 +38,7 @@ export default function Page() {
     <div className="home">
       <Navbar />
       <div className="min-h-screen text-white py-16 px-4 bg-opacity-90">
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-[1537px] mx-auto">
           <h1 className="text-5xl font-bold text-center mb-16 tracking-wide text-white">
             SERVICES
           </h1>
