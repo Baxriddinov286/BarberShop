@@ -33,7 +33,10 @@ export default function Navbar() {
           >
             Services
           </li>
-          <li className="cursor-pointer hover:text-white text-[#979797] duration-500">
+          <li
+            onClick={() => (location.href = "/about")}
+            className="cursor-pointer hover:text-white text-[#979797] duration-500"
+          >
             About Us
           </li>
           <li className="cursor-pointer hover:text-white text-[#979797] duration-500">

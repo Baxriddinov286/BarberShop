@@ -80,23 +80,14 @@ export default function page() {
                   </p>
 
                   <div className="flex justify-center gap-5 my-4 text-xl text-gray-400">
-                    <a
-                      href="#"
-                      className="hover:text-yellow-500 transition duration-200"
-                    >
-                      <FaTwitter />
+                    <a href="#">
+                      <FaTwitter className="text-yellow-400 hover:text-yellow-500 transition duration-200" />
                     </a>
-                    <a
-                      href="#"
-                      className="hover:text-yellow-500 transition duration-200"
-                    >
-                      <FaSquareFacebook />
+                    <a href="#">
+                      <FaSquareFacebook className="text-yellow-400 hover:text-yellow-500 transition duration-200" />
                     </a>
-                    <a
-                      href="#"
-                      className="hover:text-yellow-500 transition duration-200"
-                    >
-                      <FaInstagram />
+                    <a href="#">
+                      <FaInstagram className="text-yellow-400 hover:text-yellow-500 transition duration-200" />
                     </a>
                   </div>
 

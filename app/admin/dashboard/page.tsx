@@ -4,6 +4,7 @@ import Book from "@/app/_Components/Book";
 import Masters from "@/app/_Components/Masters";
 import Services from "@/app/_Components/Services";
 import Settings from "@/app/_Components/Settings";
+import Time from "@/app/_Components/Time";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -57,6 +58,16 @@ export default function Page() {
               Services
             </button>
             <button
+              onClick={() => setInfo("Time")}
+              className={`flex items-center gap-3 px-4 py-3 text-lg font-semibold rounded-xl transition-all duration-200 cursor-pointer ${
+                info === "Time"
+                  ? "bg-[#e0a96d] text-black shadow-md scale-[1.02]"
+                  : "bg-[#2c2c2c] text-gray-300 hover:bg-[#3a3a3a]"
+              }`}
+            >
+              Time
+            </button>
+            <button
               onClick={() => setInfo("Settings")}
               className={`flex items-center gap-3 px-4 py-3 text-lg font-semibold rounded-xl transition-all duration-200 cursor-pointer ${
                 info === "Settings"
@@ -78,6 +89,8 @@ export default function Page() {
           <Services />
         ) : info === "Settings" ? (
           <Settings />
+        ) : info === "Time" ? (
+          <Time />
         ) : (
           <Book />
         )}

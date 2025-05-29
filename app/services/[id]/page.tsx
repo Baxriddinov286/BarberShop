@@ -7,6 +7,7 @@ import Rodal from "rodal";
 import "rodal/lib/rodal.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Select, Space } from "antd";
 
 interface ServicesType {
   id: string;
@@ -23,6 +24,12 @@ interface MasterType {
   work: boolean;
 }
 
+interface TimeType {
+  id: string;
+  value: string;
+  label: string;
+}
+
 export default function Page() {
   const params = useParams();
   const id = typeof params?.id === "string" ? params.id : "";
@@ -30,6 +37,7 @@ export default function Page() {
 
   const [services, setServices] = useState<ServicesType[]>([]);
   const [masters, setMasters] = useState<MasterType[]>([]);
+  const [Times, setTimes] = useState<TimeType[]>([]);
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [master, setMaster] = useState("");
@@ -72,8 +80,17 @@ export default function Page() {
     setLoading(false);
   };
 
+  const fetchTimes = async () => {
+    const { data, error } = await supabase.from("BarberShop_Time").select("*");
+    if (!error && data) {
+      setTimes(data);
+    }
+    setLoading(false);
+  };
+
   useEffect(() => {
     fetchMasters();
+    fetchTimes();
   }, []);
 
   const handleOpenModal = () => {
@@ -102,6 +119,26 @@ export default function Page() {
       setOpenModal(false);
       return;
     }
+
+    const { data: existingBookings, error: checkError } = await supabase
+      .from("BarberShop_Book")
+      .select("*")
+      .eq("date", date)
+      .eq("time", time)
+      .eq("master", master);
+
+    if (checkError) {
+      toast.error("Bronni tekshirishda xatolik yuz berdi");
+      setOpenModal(false);
+      return;
+    }
+
+    if (existingBookings) {
+      toast.error("Ushbu sana va vaqtda ustada boshqa bron mavjud");
+      setOpenModal(false);
+      return;
+    }
+
     const { data, error } = await supabase.from("BarberShop_Book").insert([
       {
         userId,
@@ -117,7 +154,6 @@ export default function Page() {
     if (error) {
       toast.error("Xatolik yuz berdi, qaytadan urinib ko‘ring");
       console.log(error);
-
       setOpenModal(false);
     } else {
       toast.success("Bron qabul qilindi!");
@@ -221,13 +257,19 @@ export default function Page() {
             })}
           </select>
 
-          <input
-            type="text"
-            className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder-gray-400"
-            placeholder="Vaqtni kiriting"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-          />
+          <Space wrap>
+            <Select
+              onChange={(value) => setTime(value)}
+              value={time}
+              defaultValue="Vaqtni tanlang"
+              style={{ width: 320 }}
+              options={Times.map((time) => ({
+                value: time.value,
+                label: time.label,
+              }))}
+            />
+          </Space>
+
           <button
             className="w-full py-2 bg-transparent border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-white font-semibold tracking-wide rounded"
             onClick={handleOpenModal}
